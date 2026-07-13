@@ -1,0 +1,6 @@
+{
+  "name": "Youth Football Player Tracker",
+  "description": "Track youth football players against the FA Four Corner Model (Technical, Physical, Psychological, Social) and generate personalized development reports.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
