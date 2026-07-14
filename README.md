@@ -46,7 +46,7 @@ The application supports multiple evaluation instances over time, allowing coach
 
 * **Development Approach:** Rapid AI-assisted prototyping ("Vibe Coding").
 * **Deployment Platform:** Google AI Studio (`ai.studio`).
-* **Frameworks:** JavaScript / Python [Update with your actual stack, e.g., HTML/JS frontend], utilizing advanced prompt engineering to ensure reliable, structured JSON/Text outputs from the LLM.
+* **Frameworks:** TypeScript across both client and server code, running on Node.js, and a React 18 front end. Utilising advanced prompt engineering to ensure reliable, structured JSON/Text outputs from the LLM.
 
 ---
 
@@ -55,7 +55,7 @@ The application supports multiple evaluation instances over time, allowing coach
 If you are reviewing this project for a product role, you can experience the core user journey in less than 60 seconds:
 
 1. Open the [Live App Link](https://blypanplayertracker.ai.studio/).
-2. nput sample scores (e.g., *Technical: 4, Physical: 3, Psychological: 2, Social: 5*) and add a brief comment like: *"Excellent team player and highly skilled, but struggles with positional discipline during defensive transitions."*
+2. Input sample scores (e.g., *Technical: 4, Physical: 3, Psychological: 2, Social: 5*) and add a brief comment like: *"Excellent team player and highly skilled, but struggles with positional discipline during defensive transitions."*
 3. Click **Generate Evaluation** to see the AI output a structured training roadmap.
 
 ---
@@ -64,5 +64,5 @@ If you are reviewing this project for a product role, you can experience the cor
 
 Building this app provided direct, hands-on experience with:
 * **Scoping MVP:** Translating a personal workflow bottleneck into a minimalist, high-value feature set.
-* **AI Product Design:** Learning how to bound LLM outputs to prevent hallucinations and ensure advice remains aligned with recognized athletic frameworks (FA Four Corners).
+* **AI Product Design:** Learning how to bound LLM outputs to prevent hallucinations and ensure advice remains aligned with recognised athletic frameworks (FA Four Corners).
 * **Prompt Engineering:** Structuring system prompts to ensure the AI speaks in an encouraging, constructive, and professionally astute coaching tone.
