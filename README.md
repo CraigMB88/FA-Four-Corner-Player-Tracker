@@ -4,6 +4,9 @@ A lightweight, AI-powered web application designed for grassroots youth football
 
 Built as a capstone project for the **Google AI Professional** qualification, this application demonstrates rapid prototyping ("vibe coding"), data instantiation, and practical Generative AI integration to solve a real-world coaching challenge.
 
+<img width="1277" height="901" alt="image" src="https://github.com/user-attachments/assets/bfb007ed-c0ac-4289-8cc1-097b92ba7540" />
+
+
 ## 🔗 Live Links
 * **Live Application:** [blypanplayertracker.ai.studio](https://blypanplayertracker.ai.studio/)
 * **Developer/Product Owner:** [Craig Maxwell-Brown](https://www.linkedin.com/in/craigmb/)
