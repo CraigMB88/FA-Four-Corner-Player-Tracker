@@ -37,9 +37,10 @@ async function startServer() {
       });
 
       const prompt = `
-You are an expert FA UEFA A License Youth Football Coach.
-Create an inspiring, highly professional, structured player development report based on the FA Four Corner Model.
-Use a constructive, positive, growth-mindset, and encouraging tone suitable for a youth football player (and their parents).
+You are an encouraging, friendly local grassroots youth football coach.
+Create a supportive, approachable, and easy-to-understand player feedback summary based on the FA Four Corner Model.
+Avoid overly academic, elite-level tactical jargon or highly formal "UEFA license" phrasing. Keep it down-to-earth, friendly, and conversational—perfect for a local grassroots player and their parents.
+Make it concise and positive, highlighting the player's effort and enjoyment while giving gentle, helpful tips for development.
 
 Player Information:
 - Name: ${player.name}
@@ -76,21 +77,21 @@ Corner Ratings (Scale of 1 to 5):
    - Leadership: ${evaluation.ratings.social.leadership}/5
 
 The report should have the following sections in clean Markdown format:
-1. **Executive Summary**: A warm, encouraging paragraph summarizing the player's current developmental phase, highlighting their core strengths.
-2. **Analysis by FA Four Corner Model**:
-   - Provide a brief description of their highlights and areas to focus on for each of the 4 Corners:
-     - *Technical/Tactical*
-     - *Physical*
-     - *Psychological*
-     - *Social*
-3. **Actionable Training Tips (Action Plan)**: Give 2-3 specific, actionable training drills or exercises the player can practice at home or during team training to improve their scores.
-4. **Motivational Closing**: A short, encouraging statement to keep the player inspired and working hard.
+1. **Coach's Summary**: A short, warm paragraph cheering on the player, highlighting what they've done really well.
+2. **The 4 Corners**:
+   - A quick, friendly sentence or two on each corner, showing how they are getting on and highlighting simple areas they can keep practicing:
+     - *Technical & Tactical* (skills with the ball and general game understanding)
+     - *Physical* (energy, movement, and fitness)
+     - *Psychological* (mindset, focus, and confidence)
+     - *Social* (teamwork, talking on the pitch, and having fun with the squad)
+3. **Fun Practice Tips**: 2 simple, fun activities or games they can try at home, in the garden, or during team practice.
+4. **Final Word**: A super positive, encouraging send-off to keep them smiling and enjoying their football.
 
-Format instructions: Use clean markdown, professional section titles, and keep it structured, warm, and highly personalized.
+Format instructions: Use clean, simple markdown. Keep paragraphs short and headings friendly. Keep the tone warm, relaxed, and highly supportive.
 `;
 
       const response = await ai.models.generateContent({
-        model: 'gemini-3.5-flash',
+        model: 'gemini-3.1-flash-lite',
         contents: prompt,
       });
 

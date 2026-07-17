@@ -8,7 +8,8 @@ import {
   deleteDoc,
   doc,
   writeBatch,
-  getDocs
+  getDocs,
+  getDoc
 } from 'firebase/firestore';
 import { Player, PlayerEvaluation } from './types';
 import { SquadDashboard } from './components/SquadDashboard';
@@ -35,7 +36,7 @@ export default function App() {
 
   // Load Real-time Data from Firestore
   useEffect(() => {
-    const unsubPlayers = onSnapshot(collection(db, 'players'), (snapshot) => {
+    const unsubPlayers = onSnapshot(collection(db, 'players'), async (snapshot) => {
       const playersList: Player[] = [];
       snapshot.forEach((doc) => {
         playersList.push({ id: doc.id, ...doc.data() } as Player);
@@ -43,9 +44,17 @@ export default function App() {
       setPlayers(playersList);
       setLoading(false);
 
-      // Trigger Seeding if empty
+      // Trigger Seeding if empty and never seeded in this database
       if (playersList.length === 0 && !loading) {
-        seedInitialSquadData();
+        try {
+          const seedRef = doc(db, 'system', 'seeding');
+          const seedSnap = await getDoc(seedRef);
+          if (!seedSnap.exists()) {
+            await seedInitialSquadData();
+          }
+        } catch (e) {
+          console.error('Error checking database seeding status:', e);
+        }
       }
     });
 
@@ -68,6 +77,10 @@ export default function App() {
     try {
       console.log('Seeding initial FA 4-Corner sample players...');
       const batch = writeBatch(db);
+
+      // Write a seeding document to prevent future automatic re-seeding if the squad is emptied
+      const seedingStatusRef = doc(db, 'system', 'seeding');
+      batch.set(seedingStatusRef, { seeded: true, seededAt: new Date().toISOString() });
 
       const playerSamples: Omit<Player, 'id' | 'createdAt'>[] = [
         {
